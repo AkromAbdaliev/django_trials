@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 
 def greeting(request) -> HttpResponse:
-    return HttpResponse("Hello, from the playground!")
+    return render(request, 'index.html', {'name': 'Cybernetic'})
