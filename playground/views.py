@@ -4,5 +4,5 @@ from store.models import Product
 
 
 def greeting(request) -> HttpResponse:
-    query_set = Product.objects.filter(title__icontains='o')
+    query_set = Product.objects.values_list('id', 'title', 'collection__title')
     return render(request, 'index.html', {'name': 'Cybernetic', 'products': list(query_set)})
