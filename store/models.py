@@ -10,6 +10,12 @@ class Promotion(models.Model):
 class Collection(models.Model):
     title = models.CharField(max_length=255)
 
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        ordering = ['title']
+
 
 class Product(models.Model):
     title = models.CharField(max_length=255)
@@ -22,6 +28,12 @@ class Product(models.Model):
     promotions = models.ManyToManyField(Promotion)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        ordering = ['title']
 
 
 class Customer(models.Model):
